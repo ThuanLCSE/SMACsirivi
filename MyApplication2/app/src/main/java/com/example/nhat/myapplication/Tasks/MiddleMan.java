@@ -1,15 +1,18 @@
 package com.example.nhat.myapplication.Tasks;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.Toast;
 import com.example.nhat.myapplication.MainActivity;
 import com.example.nhat.myapplication.R;
-
+import com.example.nhat.myapplication.SetBrightess;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class MiddleMan extends AppCompatActivity {
     public final static String EXTRA_HOUR = "com.example.nhat.myapplication.MESSAGE";
@@ -20,6 +23,12 @@ public class MiddleMan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         String message = intent.getStringExtra("theText");
+        Context context = getApplicationContext();
+        CharSequence demo = message;
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, message, duration);
+        toast.show();
         handleWithKey(message);
     }
 
@@ -49,11 +58,17 @@ public class MiddleMan extends AppCompatActivity {
                 setAlarmIntent.putExtra("MINUTE", minute);
                 startActivity(setAlarmIntent);
                 finish();
-            } else
+            }
+
                 if (brightCommand){
                     String str;
                     str = text.replaceAll("[^0-9]+"," ");
-                   Intent setBright= new Intent(this, )
+                    str=str.trim();
+                    Intent setBright= new Intent(this, SetBrightess.class);
+                    setBright.putExtra("LEVEL",str);
+                    Log.d("tag", "fdafdas");
+                    startActivity(setBright);
+                    finish();
                 }
 
 

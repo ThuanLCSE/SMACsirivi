@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <android:uses-permission android:name="android.permission.HARDWARE_TEST"/>
     <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -43,6 +45,10 @@
         <activity
             android:name=".Tasks.MiddleMan"
             android:label="@string/title_activity_middle_man" >
+        </activity>
+        <activity
+            android:name=".SetBrightess"
+            android:label="@string/title_activity_set_brightess" >
         </activity>
     </application>
 
